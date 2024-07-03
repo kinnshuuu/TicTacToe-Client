@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "EC3466C3-170C-4E8B-B938-4327E2E55FA4"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6BC3E70C-1C00-4C3A-8A9B-E212A4083007"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Models/WebSocketProtocol.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "6BC3E70C-1C00-4C3A-8A9B-E212A4083007 - 520efdd92049766"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WebSocketProtocol::WebSocketProtocol()"
+                  moduleName = "TicTacToe-desktop"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tatvamdadheech/Gameberry/TicTacToe/Classes/Models/WebSocketProtocol.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "6BC3E70C-1C00-4C3A-8A9B-E212A4083007 - 520efdd92049766"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WebSocketProtocol::WebSocketProtocol()"
+                  moduleName = "TicTacToe-desktop"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tatvamdadheech/Gameberry/TicTacToe/Classes/Models/WebSocketProtocol.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
