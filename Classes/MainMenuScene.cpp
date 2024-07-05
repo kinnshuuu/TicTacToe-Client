@@ -61,19 +61,6 @@ bool MainMenuScene::init()
     
     playOnlineButton->setTag(2);
     playOnlineButton->addTouchEventListener(CC_CALLBACK_2(MainMenuScene::touchEvent, this));
-//
-//    Settings Button
-//    auto settingsButton = Button::create(MAIN_MENU_SETTINGS_BUTTON, MAIN_MENU_SETTINGS_BUTTON_PRESSED);
-//    Vec2 settingsPlayPostion = Vec2( screenSize.width / 2 + origin.x, screenSize.height * 0.49 + origin.y );
-//    settingsButton->setPosition(settingsPlayPostion);
-//    layer->addChild(settingsButton);
-//    
-//    multiplayerPlayButton->setTag(TAG_MAIN_MENU_MULTIPLAYER_BUTTON);
-//    multiplayerPlayButton->addTouchEventListener(CC_CALLBACK_2(MainMenuScene::touchEvent, this));
-    
-//    FlashHelper::UI ui;
-//    ui.AddAudioToggle(MAIN_MENU_SOUND_ON_BUTTON, MAIN_MENU_SOUND_ON_BUTTON_PRESSED, MAIN_MENU_SOUND_OFF_BUTTON, MAIN_MENU_SOUND_OFF_BUTTON_PRESSED, this, FlashHelper::UIButtonPosition::eBottomLeft);
-    
     
     return true;
 }

@@ -61,8 +61,7 @@ bool OnlineGameScene::init()
     auto *listener = EventListenerTouchOneByOne::create();
     listener->setSwallowTouches(true);
     
-    // Initiate networkControlller
-    
+    // Initiate networkController
     ws = new NetworkController();
     ws->initialize(*this);
     ws->connect();
@@ -90,7 +89,6 @@ void OnlineGameScene::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event)
     if(gameState == STATE_ON_GOING && myTurn == 1){
         CheckAndPlacePiece(touch);
     }
-    
 }
 void OnlineGameScene::onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event *event){
     
@@ -111,11 +109,11 @@ void OnlineGameScene::CheckAndPlacePiece(cocos2d::Touch *touch){
                 {
                     gameState = STATE_PLACING_PIECE;
                     gridArray[x][y] = turn;
-                    if ( X_PIECE == turn )
+                    if ( "x" == mySymbol )
                     {
                         gridPieces[x][y]->setTexture( X_PIECE_FILEPATH );
                     }
-                    else
+                    else if( "o" == mySymbol )
                     {
                         gridPieces[x][y]->setTexture( O_PIECE_FILEPATH );
                     }
@@ -178,11 +176,17 @@ void OnlineGameScene::CheckWin2(int state){
             
             if ( gameState == STATE_LOSE )
             {
-                winningPieceStr = O_WINNING_PIECE_FILEPATH;
+                if(mySymbol == "x")
+                    winningPieceStr = O_WINNING_PIECE_FILEPATH;
+                else
+                    winningPieceStr = X_WINNING_PIECE_FILEPATH;
             }
             else
             {
-                winningPieceStr = X_WINNING_PIECE_FILEPATH;
+                if(mySymbol == "o")
+                    winningPieceStr = O_WINNING_PIECE_FILEPATH;
+                else
+                    winningPieceStr = X_WINNING_PIECE_FILEPATH;
             }
             
             std::vector<int> v = OnlineGameScene::getWinningCoordinates();
@@ -248,7 +252,10 @@ void OnlineGameScene::CheckWin( int x, int y)
 
 void OnlineGameScene::onMessage(std::string msg){
     OnlineGameScene::parseJson(msg);
-    if(g->commandType == COMMAND_TYPE_PAUSE){
+    if(g->commandType == COMMAND_TYPE_CONNECTED){
+        mySymbol = (g->turn == 1)?"x":"o";
+        OnlineGameScene::CommandMove();
+    } else if(g->commandType == COMMAND_TYPE_PAUSE){
         OnlineGameScene::CommandPause();
     } else if (g->commandType == COMMAND_TYPE_MOVE){
         OnlineGameScene::CommandMove();
@@ -264,14 +271,12 @@ void OnlineGameScene::CommandPause(){
 }
 
 void OnlineGameScene::CommandMove(){
-    
     if(g->state == STATE_WAITING){
         gameState = STATE_WAITING;
     }else if (g->state == STATE_CONNECTED){
         waitingSprite->setVisible(false);
         if(g->turn == 1){
             yourTurnLabel->setVisible(true);
-            
             gameState = STATE_ON_GOING;
             myTurn = g->turn;
         }else{
@@ -294,9 +299,14 @@ void OnlineGameScene::CommandMove(){
         }
         Rect rect1 = GameScene::GetRectSpaceFromTag(g->data);
         gameState = STATE_PLACING_PIECE;
-        gridArray[x][y] = O_PIECE;
-        gridPieces[x][y]->setTexture( O_PIECE_FILEPATH );
-
+        if(mySymbol == "x"){
+            gridArray[x][y] = O_PIECE;
+            gridPieces[x][y]->setTexture( O_PIECE_FILEPATH );
+        }
+        else if(mySymbol == "o"){
+            gridArray[x][y] = X_PIECE;
+            gridPieces[x][y]->setTexture( X_PIECE_FILEPATH );
+        }
         gridPieces[x][y]->setVisible( true );
 //        gridPieces[x][y]->runAction( Sequence::create( FadeIn::create( PIECE_FADE_IN_TIME ), CallFunc::create( std::bind( &OnlineGameScene::CheckWin, this, x, y) ), NULL ) );
         gridPieces[x][y]->runAction(FadeIn::create( PIECE_FADE_IN_TIME ));

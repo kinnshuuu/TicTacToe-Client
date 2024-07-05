@@ -5,6 +5,7 @@
 #include "NetworkController.h"
 #include "UIOnlineGame.h"
 #include <vector>
+#include <string>
 
 struct GameInfo {
     int state;
@@ -37,6 +38,7 @@ private:
     UIOnlineGame *ui;
     GameInfo *g;
     int myTurn;
+    std::string mySymbol;
 
     void onMessage(std::string msg);
     void parseJson(std::string msg);

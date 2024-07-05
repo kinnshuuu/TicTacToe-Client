@@ -78,6 +78,7 @@ static const int GAME_TYPE_ONLINE=51;
 
 static const float PIECE_FADE_IN_TIME=0.5f;
 
+static const int COMMAND_TYPE_CONNECTED=59;
 static const int COMMAND_TYPE_PAUSE=60;
 static const int COMMAND_TYPE_MOVE=61;
 static const int COMMAND_TYPE_DISCONNECTED=62;

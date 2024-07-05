@@ -1,4 +1,5 @@
 #include "NetworkController.h"
+#include <iostream>
 
 NetworkController::NetworkController(){
     this->protocol = nullptr;
@@ -23,12 +24,12 @@ bool NetworkController::connect(){
         this->protocol->close();
     }
     this->protocol = new WebSocketProtocol();
-    // add ws url and ip address of the client
     this->protocol->initialize(*this, url);
     return true;
 }
 
 void NetworkController::onClose(NetworkProtocol* protocol, bool isOpen){
+    std::cout<<"Connection Closed\n";
     CCLOG("Connection Closed");
 }
 
@@ -36,6 +37,7 @@ void NetworkController::onError(NetworkProtocol* protocol, std::string msg){
 }
 
 void NetworkController::onOpen(NetworkProtocol* protocol){
+    std::cout<<"Connection Established\n";
     CCLOG("Connection Established");
 }
 
