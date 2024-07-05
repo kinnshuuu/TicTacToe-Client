@@ -1,10 +1,8 @@
 #include "UIOnlineGame.h"
 #include "MainMenuScene.h"
 #include "constants.h"
-#include "GameScene.h"
 #include "FlashHelper.h"
 #include "OnlineGameScene.h"
-
 #include <json/document.h>
 #include <json/writer.h>
 #include <json/stringbuffer.h>
@@ -34,13 +32,13 @@ UIOnlineGame::UIOnlineGame(cocos2d::Layer *layer, int &gameState, NetworkControl
     MenuItemImage *overlayPauseWindowItem = MenuItemImage::create( PAUSE_WINDOW, PAUSE_WINDOW, PAUSE_WINDOW, NULL );
     // overlayPauseWindowItem->setScale(.5,.5);
     MenuItemSprite *resumeItem = MenuItemSprite::create( Sprite::create( RESUME_BUTTON ), Sprite::create( RESUME_BUTTON_PRESSED ), Sprite::create( RESUME_BUTTON ), CC_CALLBACK_1( UIOnlineGame::PauseGame, this ) );
-    // resumeItem->setScale(.5,.5);
+        // resumeItem->setScale(.5,.5);
     resumeItem->setPosition( Vec2( -overlayPauseWindowItem->getContentSize( ).width / 4, resumeItem->getPositionY( ) ) );
     MenuItemSprite *mainMenuItem = MenuItemSprite::create( Sprite::create( HOME_BUTTON ), Sprite::create( HOME_BUTTON_PRESSED ), Sprite::create( HOME_BUTTON_PRESSED ), CC_CALLBACK_1( UIOnlineGame::GoToMainMenu, this ) );
     // mainMenuItem->setScale(.5,.5);
     mainMenuItem->setPosition( Vec2( overlayPauseWindowItem->getContentSize( ).width / 4, mainMenuItem->getPositionY( ) ) );
     
-    pauseMenu = Menu::create( overlayPauseWindowItem, resumeItem, NULL );
+    pauseMenu = Menu::create( overlayPauseWindowItem, resumeItem, mainMenuItem, NULL );
     pauseMenu->setPosition( Vec2( FlashHelper::UI::GetScreenCenter( ).x, FlashHelper::UI::GetScreenCenter( ).y + screenSize.height ) );
     // pauseMenu->setScale(.5,.5);
     layer->addChild( pauseMenu );
@@ -102,7 +100,6 @@ void UIOnlineGame::PauseGame( cocos2d::Ref *pSender)
     }
 }
 
-
 void UIOnlineGame::PauseGameByOtherPlayer(cocos2d::Ref *pSender, int pause){
     Size screenSize = Director::getInstance( )->getVisibleSize( );
     if(pause == 1){
@@ -131,15 +128,15 @@ void UIOnlineGame::ShowGameOver(cocos2d::Layer *layer, int gameType){
     layer->addChild(background);
     MenuItemImage *overlayWindowItem;
     
-    if(*gameState == STATE_WON){
-        overlayWindowItem = MenuItemImage::create(VICTORY_WINDOW_FILEPATH, OVERLAY_WINDOW_FILEPATH);
+        if(*gameState == STATE_WON){
+        overlayWindowItem = MenuItemImage::create(VICTORY_WINDOW_FILEPATH, VICTORY_WINDOW_FILEPATH);
     }else if (*gameState == STATE_LOSE){
-        overlayWindowItem = MenuItemImage::create(LOSE_WINDOW_FILEPATH, OVERLAY_WINDOW_FILEPATH);
+        overlayWindowItem = MenuItemImage::create(LOSE_WINDOW_FILEPATH, LOSE_WINDOW_FILEPATH);
     }else {
-        overlayWindowItem = MenuItemImage::create(OVERLAY_WINDOW_FILEPATH, OVERLAY_WINDOW_FILEPATH);
-    }
-    
-    MenuItemSprite *retryButton;
+            overlayWindowItem = MenuItemImage::create(OVERLAY_WINDOW_FILEPATH, OVERLAY_WINDOW_FILEPATH);
+        }
+        
+    MenuItemSprite *retryButton;    
     if(gameType == GAME_TYPE_OFFLINE){
         retryButton = MenuItemSprite::create(Sprite::create(RETRY_BUTTON), Sprite::create(RETRY_BUTTON_PRESSED), Sprite::create(RETRY_BUTTON_PRESSED),CC_CALLBACK_1(UIOnlineGame::GoToGameScene,this));
         retryButton->setPosition( Vec2( -.75*overlayWindowItem->getContentSize( ).width / 4, retryButton->getPositionY( ) ) );
@@ -147,8 +144,8 @@ void UIOnlineGame::ShowGameOver(cocos2d::Layer *layer, int gameType){
     else if(gameType == GAME_TYPE_ONLINE){
         retryButton = MenuItemSprite::create(Sprite::create(RETRY_BUTTON), Sprite::create(RETRY_BUTTON_PRESSED), Sprite::create(RETRY_BUTTON_PRESSED),CC_CALLBACK_1(UIOnlineGame::GoToMultiplayerGameScene,this));
         retryButton->setPosition( Vec2( -.75*overlayWindowItem->getContentSize( ).width / 4, retryButton->getPositionY( ) ) );
-    }
-    
+    }    
+
     auto homeButton = MenuItemSprite::create(Sprite::create(HOME_BUTTON), Sprite::create(HOME_BUTTON_PRESSED), Sprite::create(HOME_BUTTON_PRESSED),CC_CALLBACK_1(UIOnlineGame::GoToMainMenu,this));
     homeButton->setPosition( Vec2( .75*overlayWindowItem->getContentSize( ).width / 4, homeButton->getPositionY( ) ) );
     
@@ -160,8 +157,6 @@ void UIOnlineGame::ShowGameOver(cocos2d::Layer *layer, int gameType){
     EaseBounceOut *menuActionEasing = EaseBounceOut::create( MoveTo::create( MENU_MOVE_BOUNCE_DURATION, FlashHelper::UI::GetScreenCenter( ) ) );
     Sequence *menuShowSeq = Sequence::create( DelayTime::create( PIECE_FADE_IN_TIME * 2.5 ),menuActionEasing, NULL );
     menu->runAction( menuShowSeq );
-                                            
-                                                    
 }
 
 void UIOnlineGame::GoToGameScene(cocos2d::Ref *pSender){

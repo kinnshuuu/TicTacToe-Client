@@ -25,7 +25,6 @@ bool OnlineGameScene::init()
         return false;
     }
     
-    
     FlashHelper::UI::AddCentredBackground(GAME_BACKGROUND_FILEPATH, this);
     waitingSprite = Sprite::create( WAITING_FILEPATH);
     waitingSprite->setPosition(FlashHelper::UI::GetScreenCenter());
@@ -78,7 +77,6 @@ bool OnlineGameScene::init()
     return true;
 }
 
-
 bool OnlineGameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event){
     return true;
 }
@@ -87,13 +85,13 @@ void OnlineGameScene::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event)
 }
 void OnlineGameScene::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event){
     if(gameState == STATE_ON_GOING && myTurn == 1){
+        myTurn = 0;
         CheckAndPlacePiece(touch);
     }
 }
 void OnlineGameScene::onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event *event){
     
 }
-
 
 void OnlineGameScene::CheckAndPlacePiece(cocos2d::Touch *touch){
     Rect rect1 = gridSprite->getBoundingBox( );
@@ -137,7 +135,7 @@ void OnlineGameScene::CheckAndPlacePiece(cocos2d::Touch *touch){
                     std::string jsonString = buffer.GetString();
                     ws->send(jsonString);
 //                    std::cout << "myturn - " << gameState << std::endl;
-                    myTurn = 0;
+                   myTurn = 0;
 //                    gridPieces[x][y]->runAction( Sequence::create( FadeIn::create( PIECE_FADE_IN_TIME ), CallFunc::create( std::bind( &OnlineGameScene::CheckWin, this, x, y) ), NULL ) );
                     gridPieces[x][y]->runAction( FadeIn::create( PIECE_FADE_IN_TIME ));
                 }
@@ -145,7 +143,6 @@ void OnlineGameScene::CheckAndPlacePiece(cocos2d::Touch *touch){
         }
     }
 }
-
 
 std::vector<int> OnlineGameScene::getWinningCoordinates() {
     std::vector<std::vector<int>> pos{
@@ -165,7 +162,6 @@ std::vector<int> OnlineGameScene::getWinningCoordinates() {
     }
     return pos[0];
 }
-
 
 void OnlineGameScene::CheckWin2(int state){
     if ( STATE_DRAW == state || STATE_LOSE == state || STATE_WON == state )

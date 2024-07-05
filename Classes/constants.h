@@ -52,7 +52,7 @@ static const std::string O_PIECE_FILEPATH="res/O.png";
 static const std::string X_WINNING_PIECE_FILEPATH="res/X Win.png";
 static const std::string O_WINNING_PIECE_FILEPATH="res/O Win.png";
 
-static const int X_PIECE=8;
+static const int X_PIECE=1;
 static const int O_PIECE=0;
 static const int EMPTY_PIECE=-1;
 static const int PLAYER_PIECE=X_PIECE;

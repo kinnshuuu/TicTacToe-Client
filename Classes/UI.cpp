@@ -52,6 +52,28 @@ UI::UI(cocos2d::Layer *layer, int &gameState, cocos2d::String gameType) {
 UI::~UI(){
 }
 
+void UI::PauseGame( cocos2d::Ref *pSender )
+{
+    Size screenSize = Director::getInstance( )->getVisibleSize( );
+    
+    if ( STATE_PLAYING == *gameState )
+    {
+        *gameState = STATE_PAUSED;
+        pausebackground->runAction( FadeIn::create( PAUSE_BACKGROUND_FADE_IN_TIME ) );
+        
+        EaseBounceOut *menuActionEasing = EaseBounceOut::create( MoveTo::create( MENU_MOVE_BOUNCE_DURATION, FlashHelper::UI::GetScreenCenter( ) ) );
+        pauseMenu->runAction( menuActionEasing );
+    }
+    else if ( STATE_PAUSED == *gameState )
+    {
+        *gameState = STATE_PLAYING;
+        pausebackground->runAction( FadeOut::create( PAUSE_BACKGROUND_FADE_IN_TIME ) );
+        
+        EaseBounceOut *menuActionEasing = EaseBounceOut::create( MoveTo::create( MENU_MOVE_BOUNCE_DURATION, Vec2( FlashHelper::UI::GetScreenCenter( ).x, FlashHelper::UI::GetScreenCenter( ).y + screenSize.height ) ) );
+        pauseMenu->runAction( menuActionEasing );
+    }
+}
+
 void UI::ShowGameOver(cocos2d::Layer *layer, int gameType, std::string gameMode, int result){
     Size screenSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -145,24 +167,3 @@ void UI::GoToMainMenu(cocos2d::Ref *pSender){
     Director::getInstance()->replaceScene(transition);
 }
 
-void UI::PauseGame( cocos2d::Ref *pSender )
-{
-    Size screenSize = Director::getInstance( )->getVisibleSize( );
-    
-    if ( STATE_PLAYING == *gameState )
-    {
-        *gameState = STATE_PAUSED;
-        pausebackground->runAction( FadeIn::create( PAUSE_BACKGROUND_FADE_IN_TIME ) );
-        
-        EaseBounceOut *menuActionEasing = EaseBounceOut::create( MoveTo::create( MENU_MOVE_BOUNCE_DURATION, FlashHelper::UI::GetScreenCenter( ) ) );
-        pauseMenu->runAction( menuActionEasing );
-    }
-    else if ( STATE_PAUSED == *gameState )
-    {
-        *gameState = STATE_PLAYING;
-        pausebackground->runAction( FadeOut::create( PAUSE_BACKGROUND_FADE_IN_TIME ) );
-        
-        EaseBounceOut *menuActionEasing = EaseBounceOut::create( MoveTo::create( MENU_MOVE_BOUNCE_DURATION, Vec2( FlashHelper::UI::GetScreenCenter( ).x, FlashHelper::UI::GetScreenCenter( ).y + screenSize.height ) ) );
-        pauseMenu->runAction( menuActionEasing );
-    }
-}
