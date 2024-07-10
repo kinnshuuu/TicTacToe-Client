@@ -1,6 +1,6 @@
 #include "MainMenuScene.h"
 #include "constants.h"
-#include "FlashHelper.h"
+#include "FlashHelper/FlashHelper.h"
 #include "GameScene.h"
 #include "OnlineGameScene.h"
 #include "GameSceneMultiplayer.h"
@@ -37,7 +37,6 @@ bool MainMenuScene::init()
     auto playButton = Button::create(MAIN_MENU_PLAY_BUTTON, MAIN_MENU_PLAY_BUTTON_PRESSED);
     Vec2 playPostion = Vec2( screenSize.width / 2 + origin.x, screenSize.height * 0.45 + origin.y );
     playButton->setPosition(playPostion);
-    // playButton->setScale(0.6,0.6);
     layer->addChild(playButton);
     
     playButton->addTouchEventListener(CC_CALLBACK_2(MainMenuScene::touchEvent, this));
@@ -51,12 +50,10 @@ bool MainMenuScene::init()
     
     multiplayerPlayButton->setTag(TAG_MAIN_MENU_MULTIPLAYER_BUTTON);
     multiplayerPlayButton->addTouchEventListener(CC_CALLBACK_2(MainMenuScene::touchEvent, this));
-    // multiplayerPlayButton->setScale(0.6,0.6);
     //PlayOnline PlayButton
     auto playOnlineButton = Button::create("res/Play Online.png");
     Vec2 playOnlinePostion = Vec2( screenSize.width / 2 + origin.x, screenSize.height * 0.15 + origin.y );
     playOnlineButton->setPosition(playOnlinePostion);
-    // playOnlineButton->setScale(0.6,0.6);
     layer->addChild(playOnlineButton);
     
     playOnlineButton->setTag(2);

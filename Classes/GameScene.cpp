@@ -1,5 +1,5 @@
 #include "GameScene.h"
-#include "FlashHelper.h"
+#include "FlashHelper/FlashHelper.h"
 #include "constants.h"
 #include <iostream>
 #include "Bot.h"
@@ -136,7 +136,6 @@ void GameScene::InitGridPieces(){
             gridPieces[x][y]->setPosition( Vec2( gridSprite->getPositionX( ) + ( gridPieces[x][y]->getContentSize( ).width * ( x - 1 ) ), gridSprite->getPositionY( ) + ( gridPieces[x][y]->getContentSize( ).height * ( y - 1 ) ) ) );
             gridPieces[x][y]->setVisible( false );
             gridPieces[x][y]->setOpacity( 0 );
-            // gridPieces[x][y]->setScale(.5,.5);
             gridPieces[x][y]->setTag(x * 3 + y);
             this->addChild( gridPieces[x][y] );
         }

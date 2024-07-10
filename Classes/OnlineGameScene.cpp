@@ -1,5 +1,5 @@
 #include "OnlineGameScene.h"
-#include "FlashHelper.h"
+#include "FlashHelper/FlashHelper.h"
 #include "constants.h"
 #include <iostream>
 #include <vector>

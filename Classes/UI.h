@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <string>
+#include "cocos2d.h"
 
 class UI {
 public:

@@ -93,8 +93,8 @@ void Bot::CheckSection( int x1, int y1, int x2, int y2, int X, int Y, int pieceT
             
             gridPieces[X][Y]->setVisible( true );
             
-            gridPieces[X][Y]->runAction( cocos2d::FadeIn::create( PIECE_FADE_IN_TIME ) );
             // gridPieces[X][Y]->setScale(.5, .5);
+            gridPieces[X][Y]->runAction( cocos2d::FadeIn::create( PIECE_FADE_IN_TIME ) );
             throw -1;
         }
     }

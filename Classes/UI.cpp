@@ -2,9 +2,10 @@
 #include "MainMenuScene.h"
 #include "constants.h"
 #include "GameScene.h"
-#include "FlashHelper.h"
+#include "FlashHelper/FlashHelper.h"
 //#include "MultiplayerGameScene.h"
 #include <string>
+#include "cocos2d.h"
 #include "GameSceneMultiplayer.h"
 
 
@@ -42,8 +43,7 @@ UI::UI(cocos2d::Layer *layer, int &gameState, cocos2d::String gameType) {
         restartButton = MenuItemSprite::create(Sprite::create(RETRY_BUTTON), Sprite::create(RETRY_BUTTON_PRESSED), Sprite::create(RETRY_BUTTON_PRESSED), CC_CALLBACK_1(UI::GoToMultiplayerGameScene, this));
     }
     restartButton->setPosition( Vec2( 0, restartButton->getPositionY( ) ) );
-    
-//    restartButton -> setScale(0.3, 0.3);
+
     pauseMenu = Menu::create( overlayPauseWindowItem, resumeItem, mainMenuItem,restartButton,  NULL );
     pauseMenu->setPosition( Vec2( FlashHelper::UI::GetScreenCenter( ).x, FlashHelper::UI::GetScreenCenter( ).y + screenSize.height ) );
     layer->addChild( pauseMenu );
@@ -138,7 +138,7 @@ void UI::ShowGameOver(cocos2d::Layer *layer, int gameType, std::string gameMode,
     
     auto homeButton = MenuItemSprite::create(Sprite::create(HOME_BUTTON), Sprite::create(HOME_BUTTON_PRESSED), Sprite::create(HOME_BUTTON_PRESSED),CC_CALLBACK_1(UI::GoToMainMenu,this));
     homeButton->setPosition( Vec2( .75*overlayWindowItem->getContentSize( ).width / 4, homeButton->getPositionY( ) ) );
-    
+
     auto menu = Menu::create(overlayWindowItem, retryButton, homeButton, NULL);
     menu->setPosition( Vec2(FlashHelper::UI::GetScreenCenter( ).x, FlashHelper::UI::GetScreenCenter( ).y + screenSize.height) );
     // menu->setScale(.5,.5);

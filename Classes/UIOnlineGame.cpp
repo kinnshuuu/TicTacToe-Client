@@ -1,7 +1,7 @@
 #include "UIOnlineGame.h"
 #include "MainMenuScene.h"
 #include "constants.h"
-#include "FlashHelper.h"
+#include "FlashHelper/FlashHelper.h"
 #include "OnlineGameScene.h"
 #include <json/document.h>
 #include <json/writer.h>
