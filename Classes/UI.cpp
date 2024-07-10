@@ -3,7 +3,6 @@
 #include "constants.h"
 #include "GameScene.h"
 #include "FlashHelper/FlashHelper.h"
-// #include "MultiplayerGameScene.h"
 #include <string>
 #include "cocos2d.h"
 #include "GameSceneMultiplayer.h"
@@ -86,7 +85,6 @@ void UI::ShowGameOver(cocos2d::Layer *layer, int gameType, std::string gameMode,
     background->setPosition(Vec2(screenSize.width / 2 + origin.x, screenSize.height / 2 + origin.y));
     background->setOpacity(0);
     background->runAction(Sequence::create(DelayTime::create(1.0f * .5), FadeIn::create(GAME_OVER_BACKGROUND_FADE_IN_TIME), NULL));
-    // background->setScale(.5,.5);
     layer->addChild(background);
     MenuItemImage *overlayWindowItem;
 

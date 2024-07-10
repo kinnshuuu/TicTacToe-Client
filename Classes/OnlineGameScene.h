@@ -29,8 +29,7 @@ private:
     void onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event *event);
 
     void CheckAndPlacePiece(cocos2d::Touch *touch);
-    void CheckWin(int x, int y);
-    void CheckWin2(int state);
+    void CheckWin(int state);
 
     cocos2d::Sprite *waitingSprite;
     cocos2d::Label *yourTurnLabel;

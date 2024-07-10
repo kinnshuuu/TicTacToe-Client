@@ -113,6 +113,14 @@ void OnlineGameScene::CheckAndPlacePiece(cocos2d::Touch *touch)
                 {
                     gameState = STATE_PLACING_PIECE;
                     gridArray[x][y] = turn;
+                    for (int i = 0; i < 3; i++)
+                    {
+                        for (int j = 0; j < 3; j++)
+                        {
+                            std::cout << gridArray[i][j] << " ";
+                        }
+                        std::cout << "\n";
+                    }
                     if ("x" == mySymbol)
                     {
                         gridPieces[x][y]->setTexture(X_PIECE_FILEPATH);
@@ -171,7 +179,7 @@ std::vector<int> OnlineGameScene::getWinningCoordinates()
     return pos[0];
 }
 
-void OnlineGameScene::CheckWin2(int state)
+void OnlineGameScene::CheckWin(int state)
 {
     if (STATE_DRAW == state || STATE_LOSE == state || STATE_WON == state)
     {
@@ -220,48 +228,13 @@ void OnlineGameScene::CheckWin2(int state)
     }
 }
 
-void OnlineGameScene::CheckWin(int x, int y)
-{
-    CheckWinCondition(x, y, PLAYER_PIECE);
-
-    if (STATE_WON != gameState)
-    {
-        gameState = STATE_ON_GOING;
-        CheckWinCondition(x, y, ONLINE_PLAYER_PIECE);
-    }
-
-    int emptyNum = 9;
-
-    for (int x = 0; x < 3; x++)
-    {
-        for (int y = 0; y < 3; y++)
-        {
-            if (EMPTY_PIECE != gridArray[x][y])
-            {
-                emptyNum--;
-            }
-        }
-    }
-
-    // check if the game is a draw
-    if (0 == emptyNum)
-    {
-        gameState = STATE_DRAW;
-    }
-    if (STATE_DRAW == gameState || STATE_LOSE == gameState || STATE_WON == gameState)
-    {
-        ui->ShowGameOver(this, GAME_TYPE_ONLINE);
-    }
-
-    std::cout << gameState << std::endl;
-}
-
 void OnlineGameScene::onMessage(std::string msg)
 {
     OnlineGameScene::parseJson(msg);
     if (g->commandType == COMMAND_TYPE_CONNECTED)
     {
         mySymbol = (g->turn == 1) ? "x" : "o";
+        turn = (g->turn == 1) ? 1 : 0;
         OnlineGameScene::CommandMove();
     }
     else if (g->commandType == COMMAND_TYPE_PAUSE)
@@ -278,7 +251,7 @@ void OnlineGameScene::onMessage(std::string msg)
     }
     else if (g->commandType == COMMAND_TYPE_RESULT)
     {
-        OnlineGameScene::CheckWin2(g->data);
+        OnlineGameScene::CheckWin(g->data);
     }
 }
 
@@ -295,7 +268,8 @@ void OnlineGameScene::CommandMove()
     }
     else if (g->state == STATE_CONNECTED)
     {
-        waitingSprite->setVisible(false);
+        if (waitingSprite->isVisible())
+            waitingSprite->setVisible(false);
         if (g->turn == 1)
         {
             yourTurnLabel->setVisible(true);
@@ -341,6 +315,14 @@ void OnlineGameScene::CommandMove()
         //        gridPieces[x][y]->runAction( Sequence::create( FadeIn::create( PIECE_FADE_IN_TIME ), CallFunc::create( std::bind( &OnlineGameScene::CheckWin, this, x, y) ), NULL ) );
         gridPieces[x][y]->runAction(FadeIn::create(PIECE_FADE_IN_TIME));
         gameState = STATE_ON_GOING;
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                std::cout << gridArray[i][j] << " ";
+            }
+            std::cout << "\n";
+        }
     }
 }
 

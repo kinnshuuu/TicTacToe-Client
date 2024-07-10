@@ -143,19 +143,15 @@ void UIOnlineGame::ShowGameOver(cocos2d::Layer *layer, int gameType)
     else
     {
         overlayWindowItem = MenuItemImage::create(OVERLAY_WINDOW_FILEPATH, OVERLAY_WINDOW_FILEPATH);
+        auto label = Label::createWithTTF("It's a Draw", "fonts/Marker Felt.ttf", 40);
+        label->setTextColor(Color4B(128, 0, 128, 255));
+        label->setPosition(FlashHelper::UI::GetScreenCenter().x * 0.6, FlashHelper::UI::GetScreenCenter().y);
+        overlayWindowItem->addChild(label);
     }
 
     MenuItemSprite *retryButton;
-    if (gameType == GAME_TYPE_OFFLINE)
-    {
-        retryButton = MenuItemSprite::create(Sprite::create(RETRY_BUTTON), Sprite::create(RETRY_BUTTON_PRESSED), Sprite::create(RETRY_BUTTON_PRESSED), CC_CALLBACK_1(UIOnlineGame::GoToGameScene, this));
-        retryButton->setPosition(Vec2(-.75 * overlayWindowItem->getContentSize().width / 4, retryButton->getPositionY()));
-    }
-    else if (gameType == GAME_TYPE_ONLINE)
-    {
-        retryButton = MenuItemSprite::create(Sprite::create(RETRY_BUTTON), Sprite::create(RETRY_BUTTON_PRESSED), Sprite::create(RETRY_BUTTON_PRESSED), CC_CALLBACK_1(UIOnlineGame::GoToMultiplayerGameScene, this));
-        retryButton->setPosition(Vec2(-.75 * overlayWindowItem->getContentSize().width / 4, retryButton->getPositionY()));
-    }
+    retryButton = MenuItemSprite::create(Sprite::create(RETRY_BUTTON), Sprite::create(RETRY_BUTTON_PRESSED), Sprite::create(RETRY_BUTTON_PRESSED), CC_CALLBACK_1(UIOnlineGame::GoToMultiplayerGameScene, this));
+    retryButton->setPosition(Vec2(-.75 * overlayWindowItem->getContentSize().width / 4, retryButton->getPositionY()));
 
     auto homeButton = MenuItemSprite::create(Sprite::create(HOME_BUTTON), Sprite::create(HOME_BUTTON_PRESSED), Sprite::create(HOME_BUTTON_PRESSED), CC_CALLBACK_1(UIOnlineGame::GoToMainMenu, this));
     homeButton->setPosition(Vec2(.75 * overlayWindowItem->getContentSize().width / 4, homeButton->getPositionY()));
@@ -168,13 +164,6 @@ void UIOnlineGame::ShowGameOver(cocos2d::Layer *layer, int gameType)
     EaseBounceOut *menuActionEasing = EaseBounceOut::create(MoveTo::create(MENU_MOVE_BOUNCE_DURATION, FlashHelper::UI::GetScreenCenter()));
     Sequence *menuShowSeq = Sequence::create(DelayTime::create(PIECE_FADE_IN_TIME * 2.5), menuActionEasing, NULL);
     menu->runAction(menuShowSeq);
-}
-
-void UIOnlineGame::GoToGameScene(cocos2d::Ref *pSender)
-{
-    Scene *scene = GameScene::createScene();
-    TransitionFade *transition = TransitionFade::create(SCENE_TRANSITION_TIME, scene);
-    Director::getInstance()->replaceScene(transition);
 }
 
 void UIOnlineGame::GoToMultiplayerGameScene(cocos2d::Ref *pSender)
