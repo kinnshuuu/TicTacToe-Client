@@ -5,11 +5,12 @@
 #include <string>
 #include "cocos2d.h"
 
-class UI {
+class UI
+{
 public:
-    UI( cocos2d::Layer *layer, int &gameState, cocos2d::String gameType);
+    UI(cocos2d::Layer *layer, int &gameState, cocos2d::String gameType);
     ~UI();
-    
+
     void ShowGameOver(cocos2d::Layer *Layer, int gameType, std::string gameMode, int result);
     void GoToMainMenu(cocos2d::Ref *pSender);
     void GoToGameScene(cocos2d::Ref *pSender);

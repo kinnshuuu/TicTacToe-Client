@@ -5,11 +5,12 @@
 #include "UI.h"
 #include "NetworkController.h"
 
-class UIOnlineGame{
+class UIOnlineGame
+{
 public:
-    UIOnlineGame( cocos2d::Layer *layer, int &gameState, NetworkController *ws );
+    UIOnlineGame(cocos2d::Layer *layer, int &gameState, NetworkController *ws);
     ~UIOnlineGame();
-    
+
     void ShowGameOver(cocos2d::Layer *Layer, int gameType);
     void GoToMainMenu(cocos2d::Ref *pSender);
     void GoToGameScene(cocos2d::Ref *pSender);

@@ -12,29 +12,32 @@ using namespace cocos2d::network;
 
 #include <stdio.h>
 
-class NetworkController: public NetworkProtocol::Delegate {
+class NetworkController : public NetworkProtocol::Delegate
+{
 private:
-    NetworkProtocol* protocol;
+    NetworkProtocol *protocol;
     std::string url;
     std::string ip;
     std::string packet;
+
 public:
     NetworkController();
     ~NetworkController();
-    class Delegate {
-        public:
-            virtual ~Delegate(){};
-            virtual void onMessage(std::string msg) {};
+    class Delegate
+    {
+    public:
+        virtual ~Delegate() {};
+        virtual void onMessage(std::string msg) {};
     };
-    
+
     Delegate *delegate;
     bool connect();
-    void initialize(const NetworkController::Delegate&);
-    
-    void onClose(NetworkProtocol*, bool isOpen);
-    void onError(NetworkProtocol*, std::string);
-    void onOpen(NetworkProtocol*);
-    void onMessage(NetworkProtocol*, std::string msg);
+    void initialize(const NetworkController::Delegate &);
+
+    void onClose(NetworkProtocol *, bool isOpen);
+    void onError(NetworkProtocol *, std::string);
+    void onOpen(NetworkProtocol *);
+    void onMessage(NetworkProtocol *, std::string msg);
     void send(std::string data);
 };
 

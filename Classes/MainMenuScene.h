@@ -13,9 +13,10 @@ USING_NS_CC_EXT;
 class MainMenuScene : public cocos2d::Layer
 {
 public:
-    static cocos2d::Scene* createScene();
+    static cocos2d::Scene *createScene();
     virtual bool init();
     CREATE_FUNC(MainMenuScene);
+
 private:
     void touchEvent(Ref *sender, Widget::TouchEventType type);
 };

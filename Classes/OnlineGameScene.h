@@ -7,16 +7,18 @@
 #include <vector>
 #include <string>
 
-struct GameInfo {
+struct GameInfo
+{
     int state;
     int data;
     int turn;
     int commandType;
 };
 
-class OnlineGameScene : public GameScene, public NetworkController::Delegate {
+class OnlineGameScene : public GameScene, public NetworkController::Delegate
+{
 public:
-    static cocos2d::Scene* createScene();
+    static cocos2d::Scene *createScene();
     virtual bool init();
     CREATE_FUNC(OnlineGameScene);
 

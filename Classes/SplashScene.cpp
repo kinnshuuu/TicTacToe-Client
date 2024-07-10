@@ -1,10 +1,9 @@
 #include "SplashScene.h"
 #include "MainMenuScene.h"
 
-
 USING_NS_CC;
 
-Scene* SplashScene::createScene()
+Scene *SplashScene::createScene()
 {
     auto scene = Scene::create();
     auto layer = SplashScene::create();
@@ -14,44 +13,43 @@ Scene* SplashScene::createScene()
 
 bool SplashScene::init()
 {
-    if ( !Layer::init() )
+    if (!Layer::init())
     {
         return false;
     }
-    
-    Sprite *sprite = Sprite::create( "res/gameberry labs.png");
-    sprite->setPosition( Vec2( Director::getInstance( )->getVisibleSize( ).width / 2 + Director::getInstance( )->getVisibleOrigin( ).x, Director::getInstance( )->getVisibleSize( ).height / 2 + Director::getInstance( )->getVisibleOrigin( ).y ) );
-    Layer *layer = this;
-     sprite->setScale(0.8,0.8);
-    layer->addChild( sprite );
 
-    Sprite* loadingAnimation = Sprite::create(std::string(LOADING_SCREEN_PATH) + "loading.png");
-     loadingAnimation->setScale(0.7,0.7);
-    loadingAnimation->setPosition(Vec2( Director::getInstance( )->getVisibleSize( ).width / 2 + Director::getInstance( )->getVisibleOrigin( ).x, Director::getInstance( )->getVisibleSize( ).height / 4 + Director::getInstance( )->getVisibleOrigin( ).y));
+    Sprite *sprite = Sprite::create("res/gameberry labs.png");
+    sprite->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2 + Director::getInstance()->getVisibleOrigin().x, Director::getInstance()->getVisibleSize().height / 2 + Director::getInstance()->getVisibleOrigin().y));
+    Layer *layer = this;
+    sprite->setScale(0.8, 0.8);
+    layer->addChild(sprite);
+
+    Sprite *loadingAnimation = Sprite::create(std::string(LOADING_SCREEN_PATH) + "loading.png");
+    loadingAnimation->setScale(0.7, 0.7);
+    loadingAnimation->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2 + Director::getInstance()->getVisibleOrigin().x, Director::getInstance()->getVisibleSize().height / 4 + Director::getInstance()->getVisibleOrigin().y));
     this->addChild(loadingAnimation);
 
-    Vector<SpriteFrame*> frames;
+    Vector<SpriteFrame *> frames;
     for (int i = 1; i <= 3; i++)
     {
         std::string frameName = std::string(LOADING_SCREEN_PATH) + "loading_" + std::to_string(i) + ".png";
-        SpriteFrame* frame = SpriteFrame::create(frameName, Rect(0, 0, 721, 64));
+        SpriteFrame *frame = SpriteFrame::create(frameName, Rect(0, 0, 721, 64));
         frames.pushBack(frame);
     }
 
     // Create the animation from the frames
-    Animation* animation = Animation::createWithSpriteFrames(frames, 0.6f);
-    Animate* animate = Animate::create(animation);
+    Animation *animation = Animation::createWithSpriteFrames(frames, 0.6f);
+    Animate *animate = Animate::create(animation);
     loadingAnimation->runAction(animate);
-    
-    loadingAnimation->runAction( Sequence::create(animate, CallFunc::create( std::bind( &SplashScene::SwitchToMainMenu, this, 0.2f)), NULL));
-    
+
+    loadingAnimation->runAction(Sequence::create(animate, CallFunc::create(std::bind(&SplashScene::SwitchToMainMenu, this, 0.2f)), NULL));
+
     return true;
 }
-
 
 void SplashScene::SwitchToMainMenu(float dt)
 {
     Scene *scene = MainMenuScene::createScene();
-    TransitionFade* transition = TransitionFade::create(SCENE_TRANSITION_TIME, scene);
+    TransitionFade *transition = TransitionFade::create(SCENE_TRANSITION_TIME, scene);
     Director::getInstance()->replaceScene(transition);
 }
