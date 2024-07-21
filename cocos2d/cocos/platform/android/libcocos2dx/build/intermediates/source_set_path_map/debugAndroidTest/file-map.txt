@@ -1,0 +1,6 @@
+org.cocos2dx.lib.test.libcocos2dx-androidTest-0 /Users/kinshujain/Desktop/TicTacToe/client/cocos2d/cocos/platform/android/libcocos2dx/build/generated/res/resValues/androidTest/debug
+org.cocos2dx.lib.test.libcocos2dx-androidTest-1 /Users/kinshujain/Desktop/TicTacToe/client/cocos2d/cocos/platform/android/libcocos2dx/build/generated/res/rs/androidTest/debug
+org.cocos2dx.lib.test.libcocos2dx-mergeDebugAndroidTestResources-2 /Users/kinshujain/Desktop/TicTacToe/client/cocos2d/cocos/platform/android/libcocos2dx/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
+org.cocos2dx.lib.test.libcocos2dx-mergeDebugAndroidTestResources-3 /Users/kinshujain/Desktop/TicTacToe/client/cocos2d/cocos/platform/android/libcocos2dx/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
+org.cocos2dx.lib.test.libcocos2dx-merged_res-4 /Users/kinshujain/Desktop/TicTacToe/client/cocos2d/cocos/platform/android/libcocos2dx/build/intermediates/merged_res/debugAndroidTest
+org.cocos2dx.lib.test.libcocos2dx-packaged_res-5 /Users/kinshujain/Desktop/TicTacToe/client/cocos2d/cocos/platform/android/libcocos2dx/build/intermediates/packaged_res/debug

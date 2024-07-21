@@ -19,27 +19,21 @@ UIOnlineGame::UIOnlineGame(cocos2d::Layer *layer, int &gameState, NetworkControl
 
     Menu *menuButtons = Menu::create(pauseItem, NULL);
     menuButtons->setPosition(Vec2::ZERO);
-    // menuButtons->setScale(.5,.5);
     layer->addChild(menuButtons);
 
     pausebackground = Sprite::create(GAME_BACKGROUND_FILEPATH);
     pausebackground->setPosition(FlashHelper::UI::GetScreenCenter());
     pausebackground->setOpacity(0);
-    // pausebackground->setScale(.5,.5);
     layer->addChild(pausebackground);
 
     MenuItemImage *overlayPauseWindowItem = MenuItemImage::create(PAUSE_WINDOW, PAUSE_WINDOW, PAUSE_WINDOW, NULL);
-    // overlayPauseWindowItem->setScale(.5,.5);
     MenuItemSprite *resumeItem = MenuItemSprite::create(Sprite::create(RESUME_BUTTON), Sprite::create(RESUME_BUTTON_PRESSED), Sprite::create(RESUME_BUTTON), CC_CALLBACK_1(UIOnlineGame::PauseGame, this));
-    // resumeItem->setScale(.5,.5);
     resumeItem->setPosition(Vec2(-overlayPauseWindowItem->getContentSize().width / 4, resumeItem->getPositionY()));
     MenuItemSprite *mainMenuItem = MenuItemSprite::create(Sprite::create(HOME_BUTTON), Sprite::create(HOME_BUTTON_PRESSED), Sprite::create(HOME_BUTTON_PRESSED), CC_CALLBACK_1(UIOnlineGame::GoToMainMenu, this));
-    // mainMenuItem->setScale(.5,.5);
     mainMenuItem->setPosition(Vec2(overlayPauseWindowItem->getContentSize().width / 4, mainMenuItem->getPositionY()));
 
     pauseMenu = Menu::create(overlayPauseWindowItem, resumeItem, mainMenuItem, NULL);
     pauseMenu->setPosition(Vec2(FlashHelper::UI::GetScreenCenter().x, FlashHelper::UI::GetScreenCenter().y + screenSize.height));
-    // pauseMenu->setScale(.5,.5);
     layer->addChild(pauseMenu);
     ws = ws1;
 }

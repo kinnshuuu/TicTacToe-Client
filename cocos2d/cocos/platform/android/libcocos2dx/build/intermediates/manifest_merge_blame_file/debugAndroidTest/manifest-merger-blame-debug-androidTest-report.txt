@@ -1,0 +1,37 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="org.cocos2dx.lib.test" >
+4
+5    <uses-sdk
+5-->/Users/kinshujain/Desktop/TicTacToe/client/cocos2d/cocos/platform/android/libcocos2dx/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest102684815876895397.xml:5:5-74
+6        android:minSdkVersion="16"
+6-->/Users/kinshujain/Desktop/TicTacToe/client/cocos2d/cocos/platform/android/libcocos2dx/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest102684815876895397.xml:5:15-41
+7        android:targetSdkVersion="28" />
+7-->/Users/kinshujain/Desktop/TicTacToe/client/cocos2d/cocos/platform/android/libcocos2dx/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest102684815876895397.xml:5:42-71
+8
+9    <instrumentation
+9-->/Users/kinshujain/Desktop/TicTacToe/client/cocos2d/cocos/platform/android/libcocos2dx/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest102684815876895397.xml:11:5-15:71
+10        android:name="android.test.InstrumentationTestRunner"
+10-->/Users/kinshujain/Desktop/TicTacToe/client/cocos2d/cocos/platform/android/libcocos2dx/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest102684815876895397.xml:11:22-75
+11        android:functionalTest="false"
+11-->/Users/kinshujain/Desktop/TicTacToe/client/cocos2d/cocos/platform/android/libcocos2dx/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest102684815876895397.xml:14:22-52
+12        android:handleProfiling="false"
+12-->/Users/kinshujain/Desktop/TicTacToe/client/cocos2d/cocos/platform/android/libcocos2dx/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest102684815876895397.xml:13:22-53
+13        android:label="Tests for org.cocos2dx.lib.test"
+13-->/Users/kinshujain/Desktop/TicTacToe/client/cocos2d/cocos/platform/android/libcocos2dx/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest102684815876895397.xml:15:22-69
+14        android:targetPackage="org.cocos2dx.lib.test" />
+14-->/Users/kinshujain/Desktop/TicTacToe/client/cocos2d/cocos/platform/android/libcocos2dx/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest102684815876895397.xml:12:22-67
+15
+16    <application
+16-->/Users/kinshujain/Desktop/TicTacToe/client/cocos2d/cocos/platform/android/libcocos2dx/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest102684815876895397.xml:7:5-9:19
+17        android:allowBackup="true"
+17-->[:libcocos2dx] /Users/kinshujain/Desktop/TicTacToe/client/cocos2d/cocos/platform/android/libcocos2dx/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-35
+18        android:debuggable="true"
+19        android:label="libcocos2dx" >
+19-->[:libcocos2dx] /Users/kinshujain/Desktop/TicTacToe/client/cocos2d/cocos/platform/android/libcocos2dx/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:9-36
+20        <uses-library android:name="android.test.runner" />
+20-->/Users/kinshujain/Desktop/TicTacToe/client/cocos2d/cocos/platform/android/libcocos2dx/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest102684815876895397.xml:8:9-60
+20-->/Users/kinshujain/Desktop/TicTacToe/client/cocos2d/cocos/platform/android/libcocos2dx/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest102684815876895397.xml:8:23-57
+21    </application>
+22
+23</manifest>

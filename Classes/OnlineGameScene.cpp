@@ -81,6 +81,11 @@ bool OnlineGameScene::init()
 
 bool OnlineGameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event)
 {
+    if (gameState == STATE_ON_GOING && myTurn == 1)
+    {
+        myTurn = 0;
+        CheckAndPlacePiece(touch);
+    }
     return true;
 }
 void OnlineGameScene::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event)
@@ -88,11 +93,7 @@ void OnlineGameScene::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event)
 }
 void OnlineGameScene::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event)
 {
-    if (gameState == STATE_ON_GOING && myTurn == 1)
-    {
-        myTurn = 0;
-        CheckAndPlacePiece(touch);
-    }
+    
 }
 void OnlineGameScene::onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event *event)
 {
@@ -113,14 +114,14 @@ void OnlineGameScene::CheckAndPlacePiece(cocos2d::Touch *touch)
                 {
                     gameState = STATE_PLACING_PIECE;
                     gridArray[x][y] = turn;
-                    for (int i = 0; i < 3; i++)
-                    {
-                        for (int j = 0; j < 3; j++)
-                        {
-                            std::cout << gridArray[i][j] << " ";
-                        }
-                        std::cout << "\n";
-                    }
+                    // for (int i = 0; i < 3; i++)
+                    // {
+                    //     for (int j = 0; j < 3; j++)
+                    //     {
+                    //         std::cout << gridArray[i][j] << " ";
+                    //     }
+                    //     std::cout << "\n";
+                    // }
                     if ("x" == mySymbol)
                     {
                         gridPieces[x][y]->setTexture(X_PIECE_FILEPATH);
@@ -315,14 +316,14 @@ void OnlineGameScene::CommandMove()
         //        gridPieces[x][y]->runAction( Sequence::create( FadeIn::create( PIECE_FADE_IN_TIME ), CallFunc::create( std::bind( &OnlineGameScene::CheckWin, this, x, y) ), NULL ) );
         gridPieces[x][y]->runAction(FadeIn::create(PIECE_FADE_IN_TIME));
         gameState = STATE_ON_GOING;
-        for (int i = 0; i < 3; i++)
-        {
-            for (int j = 0; j < 3; j++)
-            {
-                std::cout << gridArray[i][j] << " ";
-            }
-            std::cout << "\n";
-        }
+        // for (int i = 0; i < 3; i++)
+        // {
+        //     for (int j = 0; j < 3; j++)
+        //     {
+        //         std::cout << gridArray[i][j] << " ";
+        //     }
+        //     std::cout << "\n";
+        // }
     }
 }
 

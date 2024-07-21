@@ -1,0 +1,64 @@
+Target dependency graph (15 targets)
+Target 'ALL_BUILD' in project 'TicTacToe'
+➜ Explicit dependency on target 'TicTacToe' in project 'TicTacToe'
+➜ Explicit dependency on target 'cocos2d' in project 'TicTacToe'
+➜ Explicit dependency on target 'external' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_recast' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_tinyxml2' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_xxhash' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_xxtea' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_clipper' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_edtaa3func' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_convertUTF' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_poly2tri' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_md5' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_unzip' in project 'TicTacToe'
+➜ Explicit dependency on target 'ZERO_CHECK' in project 'TicTacToe'
+Target 'TicTacToe' in project 'TicTacToe'
+➜ Explicit dependency on target 'cocos2d' in project 'TicTacToe'
+➜ Explicit dependency on target 'external' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_recast' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_tinyxml2' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_xxhash' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_xxtea' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_clipper' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_edtaa3func' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_convertUTF' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_poly2tri' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_md5' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_unzip' in project 'TicTacToe'
+➜ Explicit dependency on target 'ZERO_CHECK' in project 'TicTacToe'
+Target 'ZERO_CHECK' in project 'TicTacToe' (no dependencies)
+Target 'cocos2d' in project 'TicTacToe'
+➜ Explicit dependency on target 'external' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_recast' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_tinyxml2' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_xxhash' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_xxtea' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_clipper' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_edtaa3func' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_convertUTF' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_poly2tri' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_md5' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_unzip' in project 'TicTacToe'
+Target 'external' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_recast' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_tinyxml2' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_xxhash' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_xxtea' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_clipper' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_edtaa3func' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_convertUTF' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_poly2tri' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_md5' in project 'TicTacToe'
+➜ Explicit dependency on target 'ext_unzip' in project 'TicTacToe'
+Target 'ext_unzip' in project 'TicTacToe' (no dependencies)
+Target 'ext_md5' in project 'TicTacToe' (no dependencies)
+Target 'ext_poly2tri' in project 'TicTacToe' (no dependencies)
+Target 'ext_convertUTF' in project 'TicTacToe' (no dependencies)
+Target 'ext_edtaa3func' in project 'TicTacToe' (no dependencies)
+Target 'ext_clipper' in project 'TicTacToe' (no dependencies)
+Target 'ext_xxtea' in project 'TicTacToe' (no dependencies)
+Target 'ext_xxhash' in project 'TicTacToe' (no dependencies)
+Target 'ext_tinyxml2' in project 'TicTacToe' (no dependencies)
+Target 'ext_recast' in project 'TicTacToe' (no dependencies)

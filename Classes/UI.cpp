@@ -17,9 +17,9 @@ UI::UI(cocos2d::Layer *layer, int &gameState, cocos2d::String gameType)
     MenuItemSprite *pauseItem = MenuItemSprite::create(Sprite::create(PAUSE_BUTTON), Sprite::create(PAUSE_BUTTON_PRESSED), CC_CALLBACK_1(UI::PauseGame, this));
     pauseItem->setPosition(Vec2(screenSize.width - (pauseItem->getContentSize().width / 2) + origin.x, pauseItem->getContentSize().height / 2 + origin.y));
 
-    Menu *menuButtons = Menu::create(pauseItem, NULL);
-    menuButtons->setPosition(Vec2::ZERO);
-    layer->addChild(menuButtons);
+    Menu *pauseButtons = Menu::create(pauseItem, NULL);
+    pauseButtons->setPosition(Vec2::ZERO);
+    layer->addChild(pauseButtons);
 
     pausebackground = Sprite::create(GAME_BACKGROUND_FILEPATH);
     pausebackground->setPosition(FlashHelper::UI::GetScreenCenter());
@@ -27,12 +27,11 @@ UI::UI(cocos2d::Layer *layer, int &gameState, cocos2d::String gameType)
     layer->addChild(pausebackground);
 
     MenuItemImage *overlayPauseWindowItem = MenuItemImage::create(PAUSE_WINDOW, PAUSE_WINDOW, PAUSE_WINDOW, NULL);
+    overlayPauseWindowItem->setEnabled(false);
     MenuItemSprite *resumeItem = MenuItemSprite::create(Sprite::create(RESUME_BUTTON), Sprite::create(RESUME_BUTTON_PRESSED), Sprite::create(RESUME_BUTTON), CC_CALLBACK_1(UI::PauseGame, this));
     resumeItem->setPosition(Vec2(-1.2 * overlayPauseWindowItem->getContentSize().width / 4, resumeItem->getPositionY()));
     MenuItemSprite *mainMenuItem = MenuItemSprite::create(Sprite::create(HOME_BUTTON), Sprite::create(HOME_BUTTON_PRESSED), Sprite::create(HOME_BUTTON_PRESSED), CC_CALLBACK_1(UI::GoToMainMenu, this));
     mainMenuItem->setPosition(Vec2(1.2 * overlayPauseWindowItem->getContentSize().width / 4, mainMenuItem->getPositionY()));
-
-    //    Size size = mainMenuItem->getContentSize();
 
     MenuItemSprite *restartButton;
     if (gameType.compare("SinglePlayer") == 0)

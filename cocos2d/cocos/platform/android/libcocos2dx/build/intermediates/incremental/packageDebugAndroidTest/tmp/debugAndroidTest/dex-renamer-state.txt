@@ -1,0 +1,4 @@
+#Mon Jul 08 12:24:43 IST 2024
+base.0=/Users/kinshujain/Desktop/TicTacToe/client/cocos2d/cocos/platform/android/libcocos2dx/build/intermediates/dex/debugAndroidTest/mergeDexDebugAndroidTest/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

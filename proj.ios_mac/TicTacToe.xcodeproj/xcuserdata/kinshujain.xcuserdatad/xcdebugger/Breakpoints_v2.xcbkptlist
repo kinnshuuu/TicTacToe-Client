@@ -14,8 +14,8 @@
             filePath = "../Classes/UI.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "UI::UI(layer, gameState, gameType)"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,9 +30,9 @@
             filePath = "../Classes/UI.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "UI::UI(layer, gameState, gameType)"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "UI::~UI()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

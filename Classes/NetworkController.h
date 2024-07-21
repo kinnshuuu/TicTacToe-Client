@@ -10,15 +10,11 @@
 using namespace cocos2d;
 using namespace cocos2d::network;
 
-#include <stdio.h>
-
 class NetworkController : public NetworkProtocol::Delegate
 {
 private:
     NetworkProtocol *protocol;
     std::string url;
-    std::string ip;
-    std::string packet;
 
 public:
     NetworkController();
